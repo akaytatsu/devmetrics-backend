@@ -63,7 +63,7 @@ func (mr *MockIUsecaseUserMockRecorder) Delete(arg0 interface{}) *gomock.Call {
 }
 
 // GetUser mocks base method.
-func (m *MockIUsecaseUser) GetUser(arg0 int) (*entity.EntityUser, error) {
+func (m *MockIUsecaseUser) GetUser(arg0 string) (*entity.EntityUser, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetUser", arg0)
 	ret0, _ := ret[0].(*entity.EntityUser)
@@ -108,7 +108,7 @@ func (mr *MockIUsecaseUserMockRecorder) GetUsers(arg0 interface{}) *gomock.Call 
 }
 
 // GetUsersFromIDs mocks base method.
-func (m *MockIUsecaseUser) GetUsersFromIDs(arg0 []int) ([]entity.EntityUser, error) {
+func (m *MockIUsecaseUser) GetUsersFromIDs(arg0 []string) ([]entity.EntityUser, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetUsersFromIDs", arg0)
 	ret0, _ := ret[0].([]entity.EntityUser)
@@ -152,7 +152,7 @@ func (mr *MockIUsecaseUserMockRecorder) Update(arg0 interface{}) *gomock.Call {
 }
 
 // UpdatePassword mocks base method.
-func (m *MockIUsecaseUser) UpdatePassword(arg0 int, arg1, arg2, arg3 string) error {
+func (m *MockIUsecaseUser) UpdatePassword(arg0, arg1, arg2, arg3 string) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "UpdatePassword", arg0, arg1, arg2, arg3)
 	ret0, _ := ret[0].(error)

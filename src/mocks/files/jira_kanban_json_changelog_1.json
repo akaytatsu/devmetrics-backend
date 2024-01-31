@@ -1,0 +1,363 @@
+{
+    "expand": "operations,versionedRepresentations,customfield_10038.properties,editmeta,changelog,customfield_10010.requestTypePractice,renderedFields",
+    "id": "22536",
+    "self": "https://vert.atlassian.net/rest/api/2/issue/22536",
+    "key": "UO-874",
+    "fields": {
+        "Creator": {
+            "Password": "",
+            "accountId": "5fca6a81cbead5006999c074",
+            "accountType": "atlassian",
+            "active": true,
+            "avatarUrls": {
+                "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/16",
+                "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/24",
+                "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/32",
+                "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/48"
+            },
+            "displayName": "Débora Castro",
+            "self": "https://vert.atlassian.net/rest/api/2/user?accountId=5fca6a81cbead5006999c074",
+            "timeZone": "America/Sao_Paulo"
+        },
+        "aggregateprogress": {
+            "percent": 0,
+            "progress": 0,
+            "total": 0
+        },
+        "assignee": {
+            "Password": "",
+            "accountId": "5fca6a81cbead5006999c074",
+            "accountType": "atlassian",
+            "active": true,
+            "avatarUrls": {
+                "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/16",
+                "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/24",
+                "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/32",
+                "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/48"
+            },
+            "displayName": "Débora Castro",
+            "self": "https://vert.atlassian.net/rest/api/2/user?accountId=5fca6a81cbead5006999c074",
+            "timeZone": "America/Sao_Paulo"
+        },
+        "components": [],
+        "created": "2023-10-31T10:11:10.092-0300",
+        "creator": {
+            "accountId": "5fca6a81cbead5006999c074",
+            "accountType": "atlassian",
+            "active": true,
+            "avatarUrls": {
+                "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/16",
+                "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/24",
+                "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/32",
+                "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/48"
+            },
+            "displayName": "Débora Castro",
+            "self": "https://vert.atlassian.net/rest/api/2/user?accountId=5fca6a81cbead5006999c074",
+            "timeZone": "America/Sao_Paulo"
+        },
+        "customfield_10001": null,
+        "customfield_10002": null,
+        "customfield_10003": null,
+        "customfield_10004": null,
+        "customfield_10005": null,
+        "customfield_10006": null,
+        "customfield_10007": null,
+        "customfield_10008": null,
+        "customfield_10009": null,
+        "customfield_10010": null,
+        "customfield_10014": null,
+        "customfield_10015": null,
+        "customfield_10016": null,
+        "customfield_10017": null,
+        "customfield_10018": {
+            "hasEpicLinkFieldDependency": false,
+            "nonEditableReason": {
+                "message": "O link pai só está disponível para usuários do Jira Premium.",
+                "reason": "PLUGIN_LICENSE_ERROR"
+            },
+            "showField": false
+        },
+        "customfield_10019": null,
+        "customfield_10020": null,
+        "customfield_10021": [
+            {
+                "boardId": 35,
+                "completeDate": "2023-10-02T14:26:02.691Z",
+                "endDate": "2023-08-21T17:12:00.000Z",
+                "goal": "",
+                "id": 257,
+                "name": "Sprint 8",
+                "startDate": "2023-08-07T17:12:31.557Z",
+                "state": "closed"
+            },
+            {
+                "boardId": 35,
+                "completeDate": "2023-10-26T12:37:53.686Z",
+                "endDate": "2023-10-24T12:09:00.000Z",
+                "goal": "",
+                "id": 280,
+                "name": "Sprint 10",
+                "startDate": "2023-10-10T12:09:48.134Z",
+                "state": "closed"
+            },
+            {
+                "boardId": 35,
+                "endDate": "2023-11-09T03:00:00.000Z",
+                "goal": "",
+                "id": 283,
+                "name": "Sprint 11",
+                "startDate": "2023-10-26T12:37:08.331Z",
+                "state": "active"
+            },
+            {
+                "boardId": 35,
+                "completeDate": "2023-08-10T17:12:00.405Z",
+                "endDate": "2023-08-04T17:53:00.000Z",
+                "goal": "",
+                "id": 254,
+                "name": "Sprint 7",
+                "startDate": "2023-07-21T17:53:55.634Z",
+                "state": "closed"
+            },
+            {
+                "boardId": 35,
+                "completeDate": "2023-10-16T12:09:29.871Z",
+                "endDate": "2023-10-08T20:07:00.000Z",
+                "goal": "",
+                "id": 270,
+                "name": "Sprint 9",
+                "startDate": "2023-09-25T14:26:48.160Z",
+                "state": "closed"
+            }
+        ],
+        "customfield_10022": "0|i0242n:",
+        "customfield_10023": null,
+        "customfield_10026": null,
+        "customfield_10027": null,
+        "customfield_10028": null,
+        "customfield_10029": null,
+        "customfield_10031": "",
+        "customfield_10032": 0,
+        "customfield_10033": null,
+        "customfield_10034": null,
+        "customfield_10035": null,
+        "customfield_10036": null,
+        "customfield_10037": null,
+        "customfield_10038": null,
+        "customfield_10039": null,
+        "customfield_10044": [],
+        "customfield_10058": null,
+        "customfield_10059": null,
+        "customfield_10060": null,
+        "customfield_10061": null,
+        "customfield_10062": null,
+        "customfield_10063": null,
+        "customfield_10064": null,
+        "customfield_10065": null,
+        "customfield_10066": null,
+        "customfield_10067": null,
+        "customfield_10074": null,
+        "customfield_10075": null,
+        "fixVersions": [],
+        "issuelinks": [],
+        "issuetype": {
+            "avatarId": 10316,
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://vert.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "id": "10005",
+            "name": "Subtarefa",
+            "self": "https://vert.atlassian.net/rest/api/2/issuetype/10005",
+            "subtask": true
+        },
+        "labels": [],
+        "lastViewed": null,
+        "parent": {
+            "id": "21407",
+            "key": "UO-613"
+        },
+        "priority": {
+            "iconUrl": "https://vert.atlassian.net/images/icons/priorities/medium.svg",
+            "id": "3",
+            "name": "Medium",
+            "self": "https://vert.atlassian.net/rest/api/2/priority/3"
+        },
+        "progress": {
+            "percent": 0,
+            "progress": 0,
+            "total": 0
+        },
+        "project": {
+            "avatarUrls": {
+                "16x16": "https://vert.atlassian.net/rest/api/2/universal_avatar/view/type/project/avatar/10413?size=xsmall",
+                "24x24": "https://vert.atlassian.net/rest/api/2/universal_avatar/view/type/project/avatar/10413?size=small",
+                "32x32": "https://vert.atlassian.net/rest/api/2/universal_avatar/view/type/project/avatar/10413?size=medium",
+                "48x48": "https://vert.atlassian.net/rest/api/2/universal_avatar/view/type/project/avatar/10413"
+            },
+            "id": "10041",
+            "key": "UO",
+            "name": "Urano - Oberon",
+            "self": "https://vert.atlassian.net/rest/api/2/project/10041"
+        },
+        "reporter": {
+            "Password": "",
+            "accountId": "5fca6a81cbead5006999c074",
+            "accountType": "atlassian",
+            "active": true,
+            "avatarUrls": {
+                "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/16",
+                "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/24",
+                "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/32",
+                "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/48"
+            },
+            "displayName": "Débora Castro",
+            "self": "https://vert.atlassian.net/rest/api/2/user?accountId=5fca6a81cbead5006999c074",
+            "timeZone": "America/Sao_Paulo"
+        },
+        "security": null,
+        "status": {
+            "description": "Este problema está sendo trabalhado ativamente no momento pelo responsável.",
+            "iconUrl": "https://vert.atlassian.net/images/icons/statuses/inprogress.png",
+            "id": "3",
+            "name": "Em andamento",
+            "self": "https://vert.atlassian.net/rest/api/2/status/3",
+            "statusCategory": {
+                "colorName": "yellow",
+                "id": 4,
+                "key": "indeterminate",
+                "name": "Em andamento",
+                "self": "https://vert.atlassian.net/rest/api/2/statuscategory/4"
+            }
+        },
+        "statuscategorychangedate": "2023-10-31T10:11:34.388-0300",
+        "subtasks": [],
+        "summary": "[Front] Integração aba documentos ",
+        "updated": "2023-10-31T10:11:38.141-0300",
+        "versions": [],
+        "votes": {
+            "hasVoted": false,
+            "self": "https://vert.atlassian.net/rest/api/2/issue/UO-874/votes",
+            "votes": 0
+        },
+        "watches": {
+            "self": "https://vert.atlassian.net/rest/api/2/issue/UO-874/watchers",
+            "watchCount": 1
+        },
+        "workratio": -1
+    },
+    "changelog": {
+        "histories": [
+            {
+                "id": "171493",
+                "author": {
+                    "self": "https://vert.atlassian.net/rest/api/2/user?accountId=5fca6a81cbead5006999c074",
+                    "accountId": "5fca6a81cbead5006999c074",
+                    "accountType": "atlassian",
+                    "avatarUrls": {
+                        "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/48",
+                        "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/24",
+                        "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/16",
+                        "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/32"
+                    },
+                    "displayName": "Débora Castro",
+                    "active": true,
+                    "timeZone": "America/Sao_Paulo"
+                },
+                "created": "2023-10-31T10:11:38.151-0300",
+                "items": [
+                    {
+                        "field": "assignee",
+                        "fieldtype": "jira",
+                        "from": null,
+                        "fromString": "",
+                        "to": "5fca6a81cbead5006999c074",
+                        "toString": "Débora Castro"
+                    }
+                ]
+            },
+            {
+                "id": "171492",
+                "author": {
+                    "self": "https://vert.atlassian.net/rest/api/2/user?accountId=5fca6a81cbead5006999c074",
+                    "accountId": "5fca6a81cbead5006999c074",
+                    "accountType": "atlassian",
+                    "avatarUrls": {
+                        "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/48",
+                        "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/24",
+                        "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/16",
+                        "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/32"
+                    },
+                    "displayName": "Débora Castro",
+                    "active": true,
+                    "timeZone": "America/Sao_Paulo"
+                },
+                "created": "2023-10-31T10:11:34.406-0300",
+                "items": [
+                    {
+                        "field": "status",
+                        "fieldtype": "jira",
+                        "from": "10004",
+                        "fromString": "To Do",
+                        "to": "3",
+                        "toString": "In Progress"
+                    }
+                ]
+            },
+            {
+                "id": "171491",
+                "author": {
+                    "self": "https://vert.atlassian.net/rest/api/2/user?accountId=5fca6a81cbead5006999c074",
+                    "accountId": "5fca6a81cbead5006999c074",
+                    "accountType": "atlassian",
+                    "avatarUrls": {
+                        "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/48",
+                        "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/24",
+                        "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/16",
+                        "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/32"
+                    },
+                    "displayName": "Débora Castro",
+                    "active": true,
+                    "timeZone": "America/Sao_Paulo"
+                },
+                "created": "2023-10-31T10:11:10.638-0300",
+                "items": [
+                    {
+                        "field": "Parent",
+                        "fieldtype": "jira",
+                        "from": null,
+                        "fromString": "",
+                        "to": "21407",
+                        "toString": "UO-613"
+                    }
+                ]
+            },
+            {
+                "id": "171490",
+                "author": {
+                    "self": "https://vert.atlassian.net/rest/api/2/user?accountId=5fca6a81cbead5006999c074",
+                    "accountId": "5fca6a81cbead5006999c074",
+                    "accountType": "atlassian",
+                    "avatarUrls": {
+                        "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/48",
+                        "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/24",
+                        "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/16",
+                        "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5fca6a81cbead5006999c074/abe50374-5ac1-4da9-95b8-0482001a6f0d/32"
+                    },
+                    "displayName": "Débora Castro",
+                    "active": true,
+                    "timeZone": "America/Sao_Paulo"
+                },
+                "created": "2023-10-31T10:11:10.557-0300",
+                "items": [
+                    {
+                        "field": "IssueParentAssociation",
+                        "fieldtype": "jira",
+                        "from": null,
+                        "fromString": "",
+                        "to": "21407",
+                        "toString": "UO-613"
+                    }
+                ]
+            }
+        ]
+    }
+}

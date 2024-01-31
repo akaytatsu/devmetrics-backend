@@ -1,9 +1,9 @@
 package usecase_user
 
 import (
+	"app/config"
 	"app/entity"
 	"errors"
-	"os"
 	"time"
 
 	"github.com/golang-jwt/jwt"
@@ -12,7 +12,7 @@ import (
 const SECRET_KEY = "9an0afx$thw)k9#y*_d9-ch^r&a6ndi#x#dwu^52zbqw=hso(9"
 
 type SignedDetails struct {
-	ID    int
+	ID    string
 	Name  string
 	Email string
 	jwt.StandardClaims
@@ -77,7 +77,7 @@ func (u *UseCaseUser) GetUserByToken(token string) (*entity.EntityUser, error) {
 	return user, nil
 }
 
-func (u *UseCaseUser) UpdatePassword(id int, oldPassword, newPassword, confirmPassword string) error {
+func (u *UseCaseUser) UpdatePassword(id string, oldPassword, newPassword, confirmPassword string) error {
 
 	user, err := u.repo.GetByID(id)
 
@@ -108,21 +108,21 @@ func (u *UseCaseUser) UpdatePassword(id int, oldPassword, newPassword, confirmPa
 	return err
 }
 
-func (u *UseCaseUser) GetUsersFromIDs(ids []int) (users []entity.EntityUser, err error) {
+func (u *UseCaseUser) GetUsersFromIDs(ids []string) (users []entity.EntityUser, err error) {
 	return u.repo.GetUsersFromIDs(ids)
 }
 func (u *UseCaseUser) GetUsers(filters entity.EntityUserFilters) (users []entity.EntityUser, err error) {
 	return u.repo.GetUsers(filters)
 }
 
-func (u *UseCaseUser) GetUser(id int) (user *entity.EntityUser, err error) {
+func (u *UseCaseUser) GetUser(id string) (user *entity.EntityUser, err error) {
 	return u.repo.GetUser(id)
 }
 
 func JWTTokenGenerator(u entity.EntityUser) (signedToken string, signedRefreshToken string, err error) {
 
 	claims := SignedDetails{
-		ID:    int(u.ID),
+		ID:    u.ID,
 		Name:  u.Name,
 		Email: u.Email,
 		StandardClaims: jwt.StandardClaims{
@@ -182,8 +182,8 @@ func ValidateToken(signedToken string) (claims *SignedDetails, err error) {
 func (u *UseCaseUser) CreateAdminUser() error {
 	user, err := entity.NewUser(entity.EntityUser{
 		Name:     "Admin",
-		Email:    os.Getenv("DEFAULT_ADMIN_MAIL"),
-		Password: os.Getenv("DEFAULT_ADMIN_PASSWORD"),
+		Email:    config.EnvironmentVariables.DEFAULT_ADMIN_MAIL,
+		Password: config.EnvironmentVariables.DEFAULT_ADMIN_PASSWORD,
 		IsAdmin:  true,
 		Active:   true,
 	})

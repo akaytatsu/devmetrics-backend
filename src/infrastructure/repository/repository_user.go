@@ -2,33 +2,48 @@ package repository
 
 import (
 	"app/entity"
+	"context"
 
-	"gorm.io/gorm"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type RepositoryUser struct {
-	DB *gorm.DB
+	DB *mongo.Database
 }
 
-func NewUserPostgres(DB *gorm.DB) *RepositoryUser {
+func NewUserPostgres(DB *mongo.Database) *RepositoryUser {
 	return &RepositoryUser{DB: DB}
 }
 
-func (u *RepositoryUser) GetByID(id int) (user *entity.EntityUser, err error) {
-	u.DB.First(&user, id)
+func (u *RepositoryUser) GetByID(id string) (user *entity.EntityUser, err error) {
+
+	filter := bson.D{{Key: "id", Value: id}}
+
+	u.DB.Collection("users").FindOne(context.Background(), filter).Decode(&user)
 
 	return user, err
 }
 
 func (u *RepositoryUser) GetByMail(email string) (user *entity.EntityUser, err error) {
-	err = u.DB.Where("email = ?", email).First(&user).Error
+
+	filter := bson.D{{Key: "email", Value: email}}
+
+	err = u.DB.Collection("users").FindOne(context.Background(), filter).Decode(&user)
 
 	return user, err
 }
 
 func (u *RepositoryUser) CreateUser(user *entity.EntityUser) error {
 
-	return u.DB.Create(&user).Error
+	newID, _ := primitive.NewObjectID().MarshalText()
+
+	user.ID = string(newID)
+
+	_, err := u.DB.Collection("users").InsertOne(context.Background(), user)
+
+	return err
 }
 
 func (u *RepositoryUser) UpdateUser(user *entity.EntityUser) error {
@@ -39,7 +54,12 @@ func (u *RepositoryUser) UpdateUser(user *entity.EntityUser) error {
 		return err
 	}
 
-	return u.DB.Save(&user).Error
+	filter := bson.D{{Key: "email", Value: user.Email}}
+	update := bson.D{{Key: "$set", Value: user}}
+
+	_, err = u.DB.Collection("users").UpdateOne(context.Background(), filter, update)
+
+	return err
 }
 
 func (u *RepositoryUser) DeleteUser(user *entity.EntityUser) error {
@@ -50,13 +70,27 @@ func (u *RepositoryUser) DeleteUser(user *entity.EntityUser) error {
 		return err
 	}
 
-	return u.DB.Delete(&user).Error
+	filter := bson.D{{Key: "email", Value: user.Email}}
+
+	_, err = u.DB.Collection("users").DeleteOne(context.Background(), filter)
+
+	return err
 }
 
-func (u *RepositoryUser) GetUsersFromIDs(ids []int) (users []entity.EntityUser, err error) {
+func (u *RepositoryUser) GetUsersFromIDs(ids []string) (users []entity.EntityUser, err error) {
 	users = make([]entity.EntityUser, 0)
 
-	err = u.DB.Where("id IN ?", ids).Find(&users).Error
+	filter := bson.D{{Key: "id", Value: bson.D{{Key: "$in", Value: ids}}}}
+
+	cursor, err := u.DB.Collection("users").Find(context.Background(), filter)
+
+	if err != nil {
+		return users, err
+	}
+
+	if err = cursor.All(context.Background(), &users); err != nil {
+		return users, err
+	}
 
 	return users, err
 }
@@ -65,23 +99,38 @@ func (u *RepositoryUser) GetUsers(filters entity.EntityUserFilters) (users []ent
 
 	users = make([]entity.EntityUser, 0)
 
-	DBFind := u.DB
+	filter := bson.D{}
 
 	if filters.Search != "" {
-		DBFind = DBFind.Where("name LIKE ? or email LIKE ?", "%"+filters.Search+"%", "%"+filters.Search+"%")
+		// DBFind = DBFind.Where("name LIKE ? or email LIKE ?", "%"+filters.Search+"%", "%"+filters.Search+"%")
+		filter = append(filter, bson.E{Key: "$or", Value: bson.A{
+			bson.D{{Key: "name", Value: bson.D{{Key: "$regex", Value: filters.Search}}}},
+			bson.D{{Key: "email", Value: bson.D{{Key: "$regex", Value: filters.Search}}}},
+		}})
 	}
 
 	if filters.Active != "" {
-		DBFind = DBFind.Where("active = ?", filters.Active)
+		// DBFind = DBFind.Where("active = ?", filters.Active)
+		filter = append(filter, bson.E{Key: "active", Value: filters.Active})
 	}
 
-	err = DBFind.Find(&users).Error
+	cursor, err := u.DB.Collection("users").Find(context.Background(), filter)
+
+	if err != nil {
+		return users, err
+	}
+
+	if err = cursor.All(context.Background(), &users); err != nil {
+		return users, err
+	}
 
 	return users, err
 }
 
-func (u *RepositoryUser) GetUser(id int) (user *entity.EntityUser, err error) {
-	u.DB.First(&user, id)
+func (u *RepositoryUser) GetUser(id string) (user *entity.EntityUser, err error) {
+	filter := bson.D{{Key: "id", Value: id}}
+
+	u.DB.Collection("users").FindOne(context.Background(), filter).Decode(&user)
 
 	return user, err
 }

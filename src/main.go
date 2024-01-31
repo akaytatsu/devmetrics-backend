@@ -3,7 +3,7 @@ package main
 import (
 	"app/api"
 	"app/cron"
-	"app/infrastructure/postgres"
+	infra_mongodb "app/infrastructure/mongodb"
 	"app/infrastructure/repository"
 	usecase_user "app/usecase/user"
 	"log"
@@ -12,8 +12,7 @@ import (
 func main() {
 	cron.StartCronJobs()
 
-	conn := postgres.Connect()
-	postgres.Migrations()
+	conn := infra_mongodb.Connect()
 
 	usecase := usecase_user.NewService(
 		repository.NewUserPostgres(conn),

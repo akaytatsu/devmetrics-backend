@@ -2,7 +2,10 @@ package handlers
 
 import (
 	"app/entity"
+	infra_jira "app/infrastructure/jira"
+	infra_mongodb "app/infrastructure/mongodb"
 	"app/infrastructure/repository"
+	usecase_kanban "app/usecase/kanban"
 	usecase_user "app/usecase/user"
 	"net/http"
 	"strconv"
@@ -10,7 +13,7 @@ import (
 	middleware "app/api/middleware"
 
 	"github.com/gin-gonic/gin"
-	"gorm.io/gorm"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type LoginData struct {
@@ -92,9 +95,7 @@ func (h UserHandlers) UpdateUserHandler(c *gin.Context) {
 
 	id := strconv.Itoa(c.GetInt("id"))
 
-	dataInt, _ := strconv.Atoi(id)
-
-	entityUser.ID = dataInt
+	entityUser.ID = id
 
 	if err := c.ShouldBindJSON(&entityUser); err != nil {
 		handleError(c, err)
@@ -137,7 +138,7 @@ func (h UserHandlers) UpdatePasswordHandler(c *gin.Context) {
 		return
 	}
 
-	id, _ := strconv.Atoi(c.Param("id"))
+	id := c.Param("id")
 
 	err := h.UsecaseUser.UpdatePassword(id, updatePasswordData.OldPassword, updatePasswordData.NewPassword, updatePasswordData.ConfirmPassword)
 
@@ -166,7 +167,7 @@ func (h UserHandlers) GetUsersHandler(c *gin.Context) {
 
 func (h UserHandlers) GetUserHandler(c *gin.Context) {
 
-	id, _ := strconv.Atoi(c.Param("id"))
+	id := c.Param("id")
 
 	user, err := h.UsecaseUser.GetUser(id)
 
@@ -177,7 +178,19 @@ func (h UserHandlers) GetUserHandler(c *gin.Context) {
 	jsonResponse(c, http.StatusOK, user)
 }
 
-func MountUsersHandlers(gin *gin.Engine, conn *gorm.DB) {
+func (h UserHandlers) GetDataHandler(c *gin.Context) {
+
+	usecaseKanban := usecase_kanban.NewService(
+		repository.NewKanbanJira(
+			infra_jira.Connect(),
+			infra_mongodb.Connect(),
+		),
+	)
+
+	usecaseKanban.UpdateIssues()
+}
+
+func MountUsersHandlers(gin *gin.Engine, conn *mongo.Database) {
 
 	userHandlers := NewUserHandler(
 		usecase_user.NewService(
@@ -186,6 +199,7 @@ func MountUsersHandlers(gin *gin.Engine, conn *gorm.DB) {
 	)
 
 	gin.GET("/", HomeHandler)
+	gin.GET("/sssssssss", userHandlers.GetDataHandler)
 	gin.POST("/api/login", userHandlers.LoginHandler)
 
 	gin.POST("/login", userHandlers.LoginHandler)

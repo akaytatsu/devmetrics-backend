@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"testing"
 
 	"github.com/gin-gonic/gin"
@@ -115,4 +116,14 @@ func (r *TestRequest) getUserToken(firstName string, lastName string, email stri
 	// )
 
 	return "token"
+}
+
+func GetMockedFile(fileName string) (string, error) {
+	content, err := os.ReadFile("/app/mocks/files/" + fileName)
+
+	if err != nil {
+		return "", err
+	}
+
+	return string(content), err
 }

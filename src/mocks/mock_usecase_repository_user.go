@@ -63,7 +63,7 @@ func (mr *MockIRepositoryUserMockRecorder) DeleteUser(arg0 interface{}) *gomock.
 }
 
 // GetByID mocks base method.
-func (m *MockIRepositoryUser) GetByID(arg0 int) (*entity.EntityUser, error) {
+func (m *MockIRepositoryUser) GetByID(arg0 string) (*entity.EntityUser, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetByID", arg0)
 	ret0, _ := ret[0].(*entity.EntityUser)
@@ -93,7 +93,7 @@ func (mr *MockIRepositoryUserMockRecorder) GetByMail(arg0 interface{}) *gomock.C
 }
 
 // GetUser mocks base method.
-func (m *MockIRepositoryUser) GetUser(arg0 int) (*entity.EntityUser, error) {
+func (m *MockIRepositoryUser) GetUser(arg0 string) (*entity.EntityUser, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetUser", arg0)
 	ret0, _ := ret[0].(*entity.EntityUser)
@@ -123,7 +123,7 @@ func (mr *MockIRepositoryUserMockRecorder) GetUsers(arg0 interface{}) *gomock.Ca
 }
 
 // GetUsersFromIDs mocks base method.
-func (m *MockIRepositoryUser) GetUsersFromIDs(arg0 []int) ([]entity.EntityUser, error) {
+func (m *MockIRepositoryUser) GetUsersFromIDs(arg0 []string) ([]entity.EntityUser, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetUsersFromIDs", arg0)
 	ret0, _ := ret[0].([]entity.EntityUser)

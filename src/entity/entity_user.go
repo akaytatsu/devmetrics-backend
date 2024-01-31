@@ -10,27 +10,27 @@ import (
 const SECRET_KEY = "9an0afx$thw)k9#y*_d9-ch^r&a6ndi#x#dwu^52zbqw=hso(9"
 
 type SignedDetails struct {
-	ID    int
+	ID    string
 	Name  string
 	Email string
 	jwt.StandardClaims
 }
 
 type EntityUserFilters struct {
-	IDs    []uint `json:"ids"`
-	Search string `json:"search"`
-	Active string `json:"active"`
+	IDs    []string `json:"ids"`
+	Search string   `json:"search"`
+	Active string   `json:"active"`
 }
 
 type EntityUser struct {
-	ID        int
-	Name      string    `json:"name"       validate:"required,min=3,max=120"`
-	Email     string    `json:"email"      validate:"required,email"`
-	Password  string    `json:"password"   validate:"required,min=4,max=120"`
-	IsAdmin   bool      `json:"is_admin" gorm:"default:false"`
-	Active    bool      `json:"active" gorm:"default:true"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updated_at"`
+	ID        string    `json:"_id"       bson:"_id"`
+	Name      string    `json:"name"       validate:"required,min=3,max=120" bson:"name"`
+	Email     string    `json:"email"      validate:"required,email" bson:"email"`
+	Password  string    `json:"password"   validate:"required,min=4,max=120" bson:"password"`
+	IsAdmin   bool      `json:"is_admin" bson:"is_admin"`
+	Active    bool      `json:"active" bson:"active"`
+	CreatedAt time.Time `json:"created_at" bson:"created_at"`
+	UpdatedAt time.Time `json:"updated_at" bson:"updated_at"`
 }
 
 func NewUser(userParam EntityUser) (*EntityUser, error) {

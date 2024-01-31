@@ -1,7 +1,7 @@
 package kafka
 
 import (
-	"app/infrastructure/postgres"
+	infra_mongodb "app/infrastructure/mongodb"
 	"app/infrastructure/repository"
 	kafka_hanlders "app/kafka/hanlders"
 	usecase_user "app/usecase/user"
@@ -11,7 +11,7 @@ import (
 
 func StartKafka() {
 
-	db := postgres.Connect()
+	db := infra_mongodb.Connect()
 
 	repositoryUser := repository.NewUserPostgres(db)
 	usecaseUser := usecase_user.NewService(repositoryUser)

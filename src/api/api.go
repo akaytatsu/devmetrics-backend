@@ -5,19 +5,19 @@ import (
 
 	"app/api/handlers"
 	"app/config"
-	"app/infrastructure/postgres"
+	infra_mongodb "app/infrastructure/mongodb"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"gorm.io/gorm"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
-func setupDatabase() *gorm.DB {
-	conn := postgres.Connect()
+func setupDatabase() *mongo.Database {
+	conn := infra_mongodb.Connect()
 	return conn
 }
 
-func setupRouter(conn *gorm.DB) *gin.Engine {
+func setupRouter(conn *mongo.Database) *gin.Engine {
 	r := gin.New()
 
 	config := cors.DefaultConfig()
